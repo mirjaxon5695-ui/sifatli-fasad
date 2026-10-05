@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sifatli Fasad - Mirjalol Abdusattorov | Premium Fasad Dizayni</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: white;
+            padding: 15px 5%;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #dc2626, #1e3a8a);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .logo-text {
+            color: #1e3a8a;
+        }
+
+        .logo-text span {
+            color: #dc2626;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #dc2626;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(220, 38, 38, 0.85)), 
+                        url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200') center/cover;
+            color: white;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+        }
+
+        .hero .tagline {
+            font-size: 24px;
+            color: #fbbf24;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #dc2626, #fbbf24);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 3px solid white;
+            color: white;
+        }
+
+        /* STATISTIKA */
+        .stats {
+            background: white;
+            padding: 50px 5%;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #dc2626;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        /* BO'LIMLAR */
+        section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #1e3a8a;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 50px;
+            font-size: 18px;
+        }
+
+        /* XIZMATLAR */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            border-top: 4px solid #dc2626;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .service-card p {
+            color: #666;
+        }
+
+        /* PORTFOLIO */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .work-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .work-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .work-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .work-info {
+            padding: 25px;
+        }
+
+        .work-info h3 {
+            margin-bottom: 10px;
+            color: #1e3a8a;
+            font-size: 22px;
+        }
+
+        .work-info p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* YOUTUBE */
+        .youtube-section {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .youtube-section .section-title {
+            color: white;
+        }
+
+        .youtube-section .section-subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .youtube-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 40px;
+            background: white;
+            color: #dc2626;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: transform 0.3s;
+        }
+
+        .youtube-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* ALOQA */
+        .contact-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 80px 5%;
+        }
+
+        .contact-section .section-title {
+            color: white;
+        }
+
+        .contact-section .section-subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            padding: 50px 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .contact-name {
+            text-align: center;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .contact-role {
+            text-align: center;
+            color: #dc2626;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 18px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: transform 0.3s, background 0.3s;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            background: #e5e7eb;
+        }
+
+        .contact-item .icon {
+            font-size: 28px;
+            margin-right: 15px;
+        }
+
+        .contact-item .text {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .contact-item .label {
+            font-size: 13px;
+            color: #666;
+            display: block;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            transition: transform 0.3s;
+            color: white;
+        }
+
+        .social-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .instagram { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
+        .whatsapp { background: #25d366; }
+        .youtube { background: #ff0000; }
+
+        /* FOOTER */
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        footer .logo-text {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* MOBIL */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            .hero .tagline { font-size: 18px; }
+            .hero p { font-size: 16px; }
+            .section-title { font-size: 28px; }
+            .stat-number { font-size: 36px; }
+            nav a { margin-left: 10px; font-size: 14px; }
+            .logo { font-size: 18px; }
+            .logo-icon { width: 38px; height: 38px; font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <div class="logo-icon">🏛️</div>
+            <div class="logo-text">SIFATLI <span>FASAD</span></div>
+        </div>
+        <nav>
+            <a href="#home">Bosh sahifa</a>
+            <a href="#services">Xizmatlar</a>
+            <a href="#works">Ishlar</a>
+            <a href="#contact">Aloqa</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <h1>SIFATLI FASAD</h1>
+        <div class="tagline">Tyaga Ustun • Biz Bilan Yuksaling</div>
+        <p>Premium fasad dizayni — Zamonaviy villa va xonadonlar uchun professional yechimlar. O'z loyihangizni bugun boshlang!</p>
+        
+        <div class="hero-buttons">
+            <a href="https://wa.me/998900009033" class="btn btn-primary">💬 WhatsApp orqali bog'lanish</a>
+            <a href="#works" class="btn btn-outline">Ishlarimizni ko'ring</a>
+        </div>
+    </section>
+
+    <!-- STATISTIKA -->
+    <div class="stats">
+        <div class="stat-item">
+            <span class="stat-number">208+</span>
+            <span class="stat-label">Bajarilgan loyihalar</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">9,240+</span>
+            <span class="stat-label">Instagram obunachilar</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">1.1M</span>
+            <span class="stat-label">Oylik ko'rishlar</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Mijoz mamnunligi</span>
+        </div>
+    </div>
+
+    <!-- XIZMATLAR -->
+    <section id="services">
+        <h2 class="section-title">Bizning Xizmatlar</h2>
+        <p class="section-subtitle">Professional jamoa bilan sifatli natija</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">️</div>
+                <h3>Premium Fasadlar</h3>
+                <p>Zamonaviy va klassik uslubdagi fasad dizaynlari. Yuqori sifatli materiallar bilan.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Zamonaviy Villalar</h3>
+                <p>Villa va kottejlar uchun individual loyihalar. Har bir mijoz uchun alohida yondashuv.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon"></div>
+                <h3>Individual Loyihalar</h3>
+                <p>Mijoz talablariga moslashtirilgan noyob dizayn yechimlari.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Professional Ustalar</h3>
+                <p>Tajribali mutaxassislar jamoasi. Sifat kafolati va o'z vaqtida topshirish.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="works">
+        <h2 class="section-title">Bajarilgan Ishlar</h2>
+        <p class="section-subtitle">Sifat ishimizda ko'rinadi — bizning eng yaxshi loyihalarimiz</p>
+
+        <div class="portfolio-grid">
+            <div class="work-card">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600" alt="Zamonaviy Villa">
+                <div class="work-info">
+                    <h3>Zamonaviy Villa</h3>
+                    <p>Premium klassdagi villa fasad dizayni. Qo'qon shahri.</p>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600" alt="Klassik Fasad">
+                <div class="work-info">
+                    <h3>Klassik Uslub</h3>
+                    <p>Klassik arxitektura elementlari bilan bezatilgan fasad.</p>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600" alt="Kottej">
+                <div class="work-info">
+                    <h3>Kottej Kompleksi</h3>
+                    <p>Ko'p qavatli kottej uchun fasad yechimi.</p>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=600" alt="Minimalistik">
+                <div class="work-info">
+                    <h3>Minimalistik Dizayn</h3>
+                    <p>Zamonaviy minimalizm uslubidagi fasad yechimi.</p>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600" alt="Xususiy Uy">
+                <div class="work-info">
+                    <h3>Xususiy Uy</h3>
+                    <p>Individual loyiha asosida yaratilgan noyob fasad.</p>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600" alt="Loyiha 6">
+                <div class="work-info">
+                    <h3>Premium Loyiha</h3>
+                    <p>Mijoz talablariga moslashtirilgan individual yechim.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YOUTUBE -->
+    <section class="youtube-section">
+        <h2 class="section-title">📺 YouTube Kanalimiz</h2>
+        <p class="section-subtitle">Bajarilgan ishlarimizni video formatda ko'ring. 1.1 million+ ko'rish!</p>
+        <a href="https://youtube.com/@sifatlifasad" target="_blank" class="youtube-btn">
+            ▶️ YouTube kanalga o'tish
+        </a>
+    </section>
+
+    <!-- ALOQA -->
+    <section class="contact-section" id="contact">
+        <h2 class="section-title">Bog'lanish</h2>
+        <p class="section-subtitle">Bepul maslahat olish uchun biz bilan bog'laning</p>
+
+        <div class="contact-container">
+            <h3 class="contact-name">Mirjalol Abdusattorov</h3>
+            <p class="contact-role">Professional jamoa rahbari</p>
+
+            <a href="tel:+998900009033" class="contact-item">
+                <span class="icon">📞</span>
+                <div>
+                    <span class="label">Telefon raqam</span>
+                    <span class="text">+998 90 000 90 33</span>
+                </div>
+            </a>
+
+            <a href="https://wa.me/998900009033" target="_blank" class="contact-item">
+                <span class="icon">💬</span>
+                <div>
+                    <span class="label">WhatsApp</span>
+                    <span class="text">+998 90 000 90 33</span>
+                </div>
+            </a>
+
+            <a href="https://www.instagram.com/sifatli_fasad" target="_blank" class="contact-item">
+                <span class="icon">📷</span>
+                <div>
+                    <span class="label">Instagram</span>
+                    <span class="text">@sifatli_fasad</span>
+                </div>
+            </a>
+
+            <a href="https://youtube.com/@sifatlifasad" target="_blank" class="contact-item">
+                <span class="icon">📺</span>
+                <div>
+                    <span class="label">YouTube</span>
+                    <span class="text">@sifatlifasad</span>
+                </div>
+            </a>
+
+            <div class="contact-item" style="cursor: default;">
+                <span class="icon">📍</span>
+                <div>
+                    <span class="label">Manzil</span>
+                    <span class="text">Qo'qon shahri</span>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.instagram.com/sifatli_fasad" target="_blank" class="social-btn instagram">
+                    📷 Instagram
+                </a>
+                <a href="https://wa.me/998900009033" target="_blank" class="social-btn whatsapp">
+                    💬 WhatsApp
+                </a>
+                <a href="https://youtube.com/@sifatlifasad" target="_blank" class="social-btn youtube">
+                    ▶️ YouTube
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="logo-text">SIFATLI <span style="color: #dc2626;">FASAD</span></div>
+        <p style="margin-bottom: 10px;">Tyaga Ustun • Biz bilan yuksaling</p>
+        <p style="opacity: 0.7; font-size: 14px;">© 2026 Mirjalol Abdusattorov. Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+</body>
+</html>
